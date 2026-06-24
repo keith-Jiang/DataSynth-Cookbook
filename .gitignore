@@ -1,0 +1,22 @@
+# Claude
+.claude/
+
+# Outputs
+**/output/
+merged_training_data.jsonl
+
+# Corpus (large files)
+Backtranslation/corpus/
+
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
