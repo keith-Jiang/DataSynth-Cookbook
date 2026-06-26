@@ -10,6 +10,9 @@ DataSynth-Cookbook/
 ├── Instruct-data/                      # 指令数据合成方法集合
 │   ├── self-instruct/                  #   Self-Instruct + Evol-Instruct + Persona
 │   └── backtranslation/                #   指令回译 (Humpback + Back-and-Forth)
+├── cot-data/                           # Chain-of-Thought 推理数据合成
+├── agent-data/                         # Agent trajectory 数据合成
+├── knowledge-graph-data/               # 知识图谱数据合成
 ├── merge_datasets.py                   # 跨 pipeline 合并去重
 └── requirements.txt
 ```
@@ -20,6 +23,9 @@ DataSynth-Cookbook/
 |------|------|----------|----------|
 | `Instruct-data/self-instruct/` | Self-Instruct + Evol-Instruct + Persona | 从种子指令出发，few-shot 生成 → 进化 → 多角色实例生成 | Self-Instruct (2022), WizardLM (2023) |
 | `Instruct-data/backtranslation/` | Backtranslation | 从高质量文本出发，反向生成指令 → 打分过滤 → 改写提质 | Humpback (2023), Back-and-Forth (2024) |
+| `cot-data/` | TBD | Chain-of-Thought 推理链数据合成 | — |
+| `agent-data/` | TBD | Agent 交互轨迹数据合成 | — |
+| `knowledge-graph-data/` | TBD | 知识图谱结构化数据合成 | — |
 
 ## 快速开始
 
