@@ -5,20 +5,21 @@
 ## 项目结构
 
 ```
-data_synthesis/
-├── utils/                  # 共享工具库（API调用、去重、过滤、质量打分）
-├── Instruct-data/          # Self-Instruct + Evol-Instruct + Persona
-├── Backtranslation/        # 指令回译 (Humpback + Back-and-Forth)
-├── merge_datasets.py       # 跨 pipeline 合并去重
+DataSynth-Cookbook/
+├── utils/                              # 共享工具库（API调用、去重、过滤、质量打分）
+├── Instruct-data/                      # 指令数据合成方法集合
+│   ├── self-instruct/                  #   Self-Instruct + Evol-Instruct + Persona
+│   └── backtranslation/                #   指令回译 (Humpback + Back-and-Forth)
+├── merge_datasets.py                   # 跨 pipeline 合并去重
 └── requirements.txt
 ```
 
 ## 方法概览
 
-| Pipeline | 核心思路 | 论文来源 |
-|----------|----------|----------|
-| **Instruct-data** | 从种子指令出发，few-shot 生成 → Evol-Instruct 进化 → Persona 驱动实例生成 | Self-Instruct (2022), Evol-Instruct / WizardLM (2023) |
-| **Backtranslation** | 从高质量文本出发，反向生成指令 → LLM-as-judge 打分过滤 → 回答改写提质 | Humpback (Meta, 2023), Back-and-Forth Translation (2024) |
+| 目录 | 方法 | 核心思路 | 论文来源 |
+|------|------|----------|----------|
+| `Instruct-data/self-instruct/` | Self-Instruct + Evol-Instruct + Persona | 从种子指令出发，few-shot 生成 → 进化 → 多角色实例生成 | Self-Instruct (2022), WizardLM (2023) |
+| `Instruct-data/backtranslation/` | Backtranslation | 从高质量文本出发，反向生成指令 → 打分过滤 → 改写提质 | Humpback (2023), Back-and-Forth (2024) |
 
 ## 快速开始
 
@@ -30,17 +31,17 @@ pip install -r requirements.txt
 echo "DEEPSEEK_API_KEY=your_key_here" > .env
 ```
 
-### 运行 Instruct-data
+### 运行 Self-Instruct
 
 ```bash
-cd Instruct-data
+cd Instruct-data/self-instruct
 python run_pipeline.py --num_instructions 20 --evolve_ratio 0.3
 ```
 
 ### 运行 Backtranslation
 
 ```bash
-cd Backtranslation
+cd Instruct-data/backtranslation
 
 # 小规模测试
 python run_pipeline.py --max_wiki 20 --max_stack 10 --sync

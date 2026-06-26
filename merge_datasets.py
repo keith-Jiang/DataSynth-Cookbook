@@ -46,11 +46,11 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Merge datasets from all pipelines")
     parser.add_argument(
         "--instruct_path", type=str,
-        default="Instruct-data/output/final_training_data.jsonl",
+        default="Instruct-data/self-instruct/output/final_training_data.jsonl",
     )
     parser.add_argument(
         "--backtranslation_path", type=str,
-        default="Backtranslation/output/final_backtranslation_data.jsonl",
+        default="Instruct-data/backtranslation/output/final_backtranslation_data.jsonl",
     )
     parser.add_argument("--output_path", type=str, default="merged_training_data.jsonl")
     parser.add_argument("--rouge_dedup", action="store_true",

@@ -6,7 +6,7 @@
 merged_training_data.jsonl
 
 # Corpus (large files)
-Backtranslation/corpus/
+**/corpus/
 
 # Environment
 .env
